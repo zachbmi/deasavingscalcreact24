@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  font-family: 'Roboto',-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -11,3 +11,65 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: space-between;
+  margin-top: 1rem;
+  margin-left: 1rem;
+}
+
+.subrow {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: space-between;
+  margin-top: 0.5rem;
+  margin-left: 1rem;
+}
+
+.center {
+  margin-right: auto;
+  margin-left: auto;
+  display: inline-flex;
+}
+
+.row-left {
+  margin-right: auto;
+  
+}
+
+.row-right {
+  margin-left: auto;
+  display: inline-flex;
+}
+
+.row-top {
+  margin-bottom: auto;
+  display: inline-flex;
+}
+
+.row-bottom {
+  margin-top: auto;
+  display: inline-flex;
+}
+
+
+.row-no-left-margin {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: space-between;
+  margin-top: 1rem;
+}
+
+.row-no-margin {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: space-between;
+}
+
+
