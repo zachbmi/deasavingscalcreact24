@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/deasavingscalcreact24/static/css/main.a63886b0.css",
-    "main.js": "/deasavingscalcreact24/static/js/main.d931baa7.js",
+    "main.js": "/deasavingscalcreact24/static/js/main.e4e183eb.js",
     "static/js/787.ee19d0a6.chunk.js": "/deasavingscalcreact24/static/js/787.ee19d0a6.chunk.js",
     "static/js/606.242db27f.js": "/deasavingscalcreact24/static/js/606.242db27f.js",
     "static/media/source-sans-pro-latin-ext-400-normal.woff": "/deasavingscalcreact24/static/media/source-sans-pro-latin-ext-400-normal.185cedfb4e64a9a8801a.woff",
@@ -34,13 +34,13 @@
     "static/media/roboto-greek-ext-400-normal.woff": "/deasavingscalcreact24/static/media/roboto-greek-ext-400-normal.16eb83b4a3b1ea994243.woff",
     "index.html": "/deasavingscalcreact24/index.html",
     "main.a63886b0.css.map": "/deasavingscalcreact24/static/css/main.a63886b0.css.map",
-    "main.d931baa7.js.map": "/deasavingscalcreact24/static/js/main.d931baa7.js.map",
+    "main.e4e183eb.js.map": "/deasavingscalcreact24/static/js/main.e4e183eb.js.map",
     "787.ee19d0a6.chunk.js.map": "/deasavingscalcreact24/static/js/787.ee19d0a6.chunk.js.map",
     "606.242db27f.js.map": "/deasavingscalcreact24/static/js/606.242db27f.js.map"
   },
   "entrypoints": [
     "static/js/606.242db27f.js",
     "static/css/main.a63886b0.css",
-    "static/js/main.d931baa7.js"
+    "static/js/main.e4e183eb.js"
   ]
 }
