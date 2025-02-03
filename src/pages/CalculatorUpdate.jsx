@@ -16,9 +16,16 @@ function CalculatorUpdate() {
 
     const materialUITextFieldProps = {
        
-       sx:[{width: '20VW',input: {textAlign: "center",fontSize: '18pt', fontWeight: '600', fontFamily: 'Source Sans Pro'}}] ,
+       sx:[{width: '32VW',input: {textAlign: "center",fontSize: '18pt', fontWeight: '600', fontFamily: 'Source Sans Pro'}}] ,
         variant:"outlined" 
       };
+
+      const materialUITextFieldPropsMobile = {
+       
+        sx:[{width: '42VW',input: {textAlign: "center",fontSize: '18pt', fontWeight: '600', fontFamily: 'Source Sans Pro'}}] ,
+         variant:"outlined" 
+       };
+ 
 
     
     const NumericFormatCustom = React.forwardRef(
@@ -178,7 +185,7 @@ function CalculatorUpdate() {
     }
   }
 
-   const [ineligibleRate, setIneligibleRate] = useState(9.2);
+   const [ineligibleRate, setIneligibleRate] = useState(9.5);
 
    function handleIneligibleRateUpdate(event){
     console.log("V-RATE:", event)
@@ -214,9 +221,12 @@ function CalculatorUpdate() {
 
   return (
       <>
-      <Container maxWidth="lg">
-        <div className='row-no-left-margin'>
-                <Box sx={{width: '24VW'}}>
+      {/* <Container maxWidth="lg"> */}
+       {/* DESKTOP LAYOUT */}
+      <Box sx={{ display: {xs: "none", md: "block", lg: "block" , xl: "block"}}}>
+
+      <div className='row-no-left-margin'>
+                <Box sx={{width: '53VW'}}>
                     <Typography  fontSize="14pt" align="right" sx={{fontFamily: 'Roboto', mt: 2}}>How many dependents do you have?</Typography>
                 </Box>
                 <Box sx={{width: '2VW'}}/>
@@ -240,7 +250,7 @@ function CalculatorUpdate() {
            
         </div>
         <div className='row-no-left-margin'>
-                <Box sx={{width: '24VW'}}>
+                <Box sx={{width: '53VW'}}>
                 <Typography  fontFamily={'Roboto'} fontSize="14pt" align="right" sx={{fontFamily: 'Roboto',  mt: 2}}>What is your average annual cost per dependent?</Typography>
                 </Box>
               
@@ -264,7 +274,7 @@ function CalculatorUpdate() {
                 
         </div>
         <div className='row-no-left-margin'>
-                <Box sx={{width: '24VW'}}>
+                <Box sx={{width: '53VW'}}>
                     <Typography fontFamily={'Roboto'} fontSize="14pt" align="right" sx={{fontFamily: 'Roboto',  mt: 2}}>What is your estimated ineligible rate?</Typography>
                 </Box>
                 <Box sx={{width: '2VW'}}/>
@@ -294,7 +304,7 @@ function CalculatorUpdate() {
 
         <div className='row-no-left-margin'>
            
-                <Box sx={{width: '24VW'}}>
+                <Box sx={{width: '47VW'}}>
                     {loading==true ? (<>
                     </>) : (<>
                         <Typography  fontSize="45pt"  align="center" sx={{fontFamily: 'Source Sans Pro', color: '#0059a8'  }}>{Math.floor(ineligibleDependentsResult)}</Typography>
@@ -304,7 +314,7 @@ function CalculatorUpdate() {
                 </Box>
            
             
-            <Box sx={{width: '24VW'}}>
+            <Box sx={{width: '47VW'}}>
             {loading==true ? (<>
                     </>) : (<>
                         <Typography
@@ -327,16 +337,130 @@ function CalculatorUpdate() {
                 </Box>
            
         </div>
-        
-        {/*<Box sx={{ 
-            bgcolor: '#cfe8fc', 
-            height: '100vh', 
-            border: '1px solid #000000'
-            }} />*/}
+      </Box>
+        {/* MOBILE LAYOUT */}
+      <Box sx={{ display: {xs: "block", md: "none", lg: "none" , xl: "none"}}}>
+      
+      <div className='row-no-left-margin'>
+                <Box sx={{width: '53VW'}}>
+                    <Typography  fontSize="14pt" align="right" sx={{fontFamily: 'Roboto', mt: 2}}>How many dependents do you have?</Typography>
+                </Box>
+                <Box sx={{width: '2VW'}}/>
+                <NumericFormat
+                 customInput={TextField}
+                 {...materialUITextFieldPropsMobile}
+               
+                value={dependentCount} 
+              
+                onValueChange={(values) => {
+                  handleDependentCountUpdate({target: {value: values.value}})
+                 }
+                  
+               }
+               
+                valueIsNumericString
+                thousandSeparator
+                
+              />
+               
+           
+        </div>
+        <div className='row-no-left-margin'>
+                <Box sx={{width: '53VW'}}>
+                <Typography  fontFamily={'Roboto'} fontSize="14pt" align="right" sx={{fontFamily: 'Roboto',  mt: 2}}>What is your average annual cost per dependent?</Typography>
+                </Box>
+              
+                <Box sx={{width: '2VW'}}/>
+                <NumericFormat
+               customInput={TextField}
+               {...materialUITextFieldPropsMobile}
+              onValueChange={(values) => {
+                handleDependentCostUpdate({target: {value: values.value}})
+               }
+                
+             }
 
+              value={dependentCost} 
+              
+             
+              thousandSeparator
+              valueIsNumericString
+              prefix="$"
+            />
+                
+        </div>
+        <div className='row-no-left-margin'>
+                <Box sx={{width: '53VW'}}>
+                    <Typography fontFamily={'Roboto'} fontSize="14pt" align="right" sx={{fontFamily: 'Roboto',  mt: 2}}>What is your estimated ineligible rate?</Typography>
+                </Box>
+                <Box sx={{width: '2VW'}}/>
+                <>
+                <NumericFormat
+            customInput={TextField}
+            {...materialUITextFieldPropsMobile}
+                
+              value={ineligibleRate } 
+             
+              onValueChange={(values) => {
+               handleIneligibleRateUpdate({target: {value: values.value}})
+              }
+               
+            }
+               
+              
+             
+              valueIsNumericString={true}
+              suffix="%"
+            />
+  
+                </>
+               
+           
+        </div>
+
+        <div className='row-no-left-margin'>
+           
+                <Box sx={{width: '47VW'}}>
+                    {loading==true ? (<>
+                    </>) : (<>
+                        <Typography  fontSize="30pt"  align="center" sx={{fontFamily: 'Source Sans Pro', color: '#0059a8'  }}>{Math.floor(ineligibleDependentsResult)}</Typography>
+                    </>)}
+                    
+                    <Typography fontFamily={'Roboto'} fontSize="12pt" align="center" sx={{fontFamily: 'Roboto',  }}>ineligible dependents</Typography>
+                </Box>
+           
+            
+            <Box sx={{width: '47VW'}}>
+            {loading==true ? (<>
+                    </>) : (<>
+                        <Typography
+                      fontSize="30pt"
+                       align="center"
+                       format={'Currency'}
+                        sx={{fontFamily: 'Source Sans Pro', color: '#0059a8'  }}
+                       
+                        >
+                          <CountUp
+                           end={parseInt(annualSavingsResult)} 
+                           duration={2}
+                           prefix={'$'}
+                           />
+                        </Typography>
+
+                    </>)}
+                   
+                    <Typography fontFamily={'Roboto'} fontSize="12pt" align="center" sx={{fontFamily: 'Roboto',  }}>first year annual savings</Typography>
+                </Box>
+           
+        </div>
+
+      </Box>
+       
+        
+       
         
 
-      </Container>
+      {/* </Container> */}
       
       </>
      
